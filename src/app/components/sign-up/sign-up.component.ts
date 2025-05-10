@@ -8,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './sign-up.component.scss'
 })
 export class SignUpComponent {
+  password = '';
+  passwordRepeat = '';
 
+  onChangePassword(event:Event){
+    this.password =  (event.target as HTMLInputElement).value
+  }
+  onChangePasswordRepeat(event:Event){
+    this.passwordRepeat =  (event.target as HTMLInputElement).value
+  }
+  isDisabled(){
+   return this.password ?(this.password !== this.passwordRepeat) : true
+  }
 }
